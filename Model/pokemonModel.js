@@ -1,7 +1,7 @@
 const pokemons = [
     {id:1, nome: 'Bulbassauro', tipo: 'vegetal/veneno'},
-    {id:1, nome: 'Squitle', tipo: 'água'},
-    {id:1, nome: 'Charmander', tipo: 'fogo'}
+    {id:2, nome: 'Squitle', tipo: 'água'},
+    {id:3, nome: 'Charmander', tipo: 'fogo'}
 ];
 
 

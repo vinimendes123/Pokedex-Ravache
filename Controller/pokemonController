@@ -1,0 +1,24 @@
+const pokemonModel = require('../Model/pokemonModel');
+
+const getAllPokemons = (req, res) => {
+    const pokemons = pokemonModel.getPokemons();
+    res.render('index', { pokemons });
+};
+
+const getPokemon = (req, res) => {
+    const pokemon = pokemonModel.getPokemonById(req.params.id); // Aqui, buscamos o Pokémon pelo ID
+    if (pokemon) {
+        res.render('pokemon', { pokemon }); // Renderiza a página de detalhes do Pokémon
+    } else {
+        res.status(404).send('Pokemon não encontrado'); // Se não encontrado, envia uma resposta 404
+    }
+};
+
+// Função para criar um Pokémon
+const createPokemon = (req, res) => {
+    const { nome, tipo } = req.body; // Obtém os dados do formulário
+    pokemonModel.createPokemon(nome, tipo); // Cria o Pokémon
+    res.redirect('/'); // Redireciona para a página inicial após o cadastro
+};
+
+module.exports = { getAllPokemons, getPokemon, createPokemon };
