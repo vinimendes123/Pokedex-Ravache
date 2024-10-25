@@ -26,14 +26,14 @@ h1 {
     color: #fff; 
 }
 
-#pokedex {
+#treinadores {
     list-style: none;
     padding: 0; 
     margin: 0; 
     width: 100%; 
 }
 
-#pokedex li {
+#treinadores li {
     background-color: #e6f7ff; 
     padding: 5px;
     margin-bottom: 5px;
@@ -88,3 +88,63 @@ button:hover {
     color: #fff; 
     font-family: 'Courier New', Courier, monospace; 
 }
+
+/* Estilos para o botão de cadastro de treinadores */
+#btnCadastroTreinador {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; 
+    margin-top: 10px; /* Margem superior para espaçamento */
+    transition: background-color 0.3s; /* Efeito de transição suave */
+}
+
+#btnCadastroTreinador:hover {
+    background-color: #0056b3; /* Escurece ao passar o mouse */
+}
+
+/* Estilo para o select (lista suspensa) */
+select {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff; 
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace; 
+    color: #333;
+    margin-bottom: 15px;
+    appearance: none; /* Remove o estilo padrão do select */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23007bff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Ícone de seta personalizado */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Estilo para as opções da lista suspensa */
+select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Para navegadores que suportam foco em option */
+select:focus {
+    outline: none; /* Remove o contorno padrão */
+    border-color: #007bff; /* Cor de destaque ao focar */
+}
+
+/* Ajustes para a largura em diferentes tamanhos de tela */
+@media (max-width: 768px) {
+    select {
+        width: 100%;
+    }
+}
+

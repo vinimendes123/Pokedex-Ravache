@@ -1,0 +1,53 @@
+const treinadorModel = require('../Model/treinadorModel');
+const pokemonModel = require('../Model/pokemonModel'); // Adicione esta linha
+
+const getAllTreinadores = (req, res) => {
+    try {
+        const treinadores = treinadorModel.getTreinadores(); // Pega a lista de treinadores do model
+        const pokemons = pokemonModel.getPokemons(); // Pega a lista de Pokémons do model
+        res.render('cadastro-treinador', { treinadores, pokemons }); // Passa ambos para a view
+    } catch (error) {
+        console.error('Erro ao carregar a lista de treinadores:', error);
+        res.status(500).send('Erro ao carregar a lista de treinadores.');
+    }
+};
+
+
+const getTreinador = (req, res) => {
+    const treinador = treinadorModel.getTreinadorById(req.params.id);
+    if (treinador) {
+        res.render('treinador', { treinador });
+    } else {
+        res.status(404).send('Treinador não encontrado');
+    }
+};
+
+const getCadastroTreinador = (req, res) => {
+    try {
+        const pokemons = pokemonModel.getPokemons(); // Pega a lista de Pokémons
+        const treinadores = treinadorModel.getTreinadores(); // Pega a lista de treinadores do model
+        res.render('cadastro-treinador', { pokemons, treinadores }); // Passa ambos para a view
+    } catch (error) {
+        console.error('Erro ao renderizar a página de cadastro de treinador:', error);
+        res.status(500).send('Erro ao carregar a página de cadastro.');
+    }
+};
+
+
+const createTreinador = (req, res) => {
+    const { nome, poke } = req.body;
+
+    if (!nome || !poke) {
+        return res.status(400).send('Nome e Pokémon são obrigatórios.');
+    }
+
+    try {
+        treinadorModel.createTreinador(nome, poke);
+        res.redirect('/treinadores');
+    } catch (error) {
+        console.error('Erro ao criar treinador:', error);
+        res.status(500).send('Erro ao criar treinador.');
+    }
+};
+
+module.exports = { getAllTreinadores, getTreinador, getCadastroTreinador, createTreinador };

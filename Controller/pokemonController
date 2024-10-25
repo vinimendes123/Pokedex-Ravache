@@ -1,4 +1,4 @@
-const pokemonModel = require('../Model/pokemonModel');
+const pokemonModel = require('../Model/pokemonModel'); 
 
 const getAllPokemons = (req, res) => {
     const pokemons = pokemonModel.getPokemons();
@@ -6,19 +6,35 @@ const getAllPokemons = (req, res) => {
 };
 
 const getPokemon = (req, res) => {
-    const pokemon = pokemonModel.getPokemonById(req.params.id); // Aqui, buscamos o Pokémon pelo ID
+    const pokemon = pokemonModel.getPokemonById(req.params.id);
     if (pokemon) {
-        res.render('pokemon', { pokemon }); // Renderiza a página de detalhes do Pokémon
+        res.render('pokemon', { pokemon });
     } else {
-        res.status(404).send('Pokemon não encontrado'); // Se não encontrado, envia uma resposta 404
+        res.status(404).send('Pokemon não encontrado');
     }
 };
 
-// Função para criar um Pokémon
 const createPokemon = (req, res) => {
-    const { nome, tipo } = req.body; // Obtém os dados do formulário
-    pokemonModel.createPokemon(nome, tipo); // Cria o Pokémon
-    res.redirect('/'); // Redireciona para a página inicial após o cadastro
+    const { nome, tipo } = req.body; 
+
+    if (!nome || !tipo) {
+        return res.status(400).send('Nome e Tipo são obrigatórios.');
+    }
+
+    try {
+     
+        console.log(`Nome: ${nome}, Tipo: ${tipo}`);
+    
+        pokemonModel.createPokemon(nome, tipo);
+        
+        console.log('Pokémon criado com sucesso');
+        res.redirect('/');
+    } catch (error) {
+        console.error('Erro ao criar Pokémon:', error);
+        res.status(500).send('Erro ao criar Pokémon.');
+    }
 };
+
+
 
 module.exports = { getAllPokemons, getPokemon, createPokemon };

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nome": "joão",
+    "poke": "Bulbassauro "
+  },
+  {
+    "id": 2,
+    "nome": "Vini",
+    "poke": "Wartortle"
+  },
+  {
+    "id": 3,
+    "nome": "Pinduca",
+    "poke": "Pikachu"
+  },
+  {
+    "id": 4,
+    "nome": "Jamilly",
+    "poke": "Squitle"
+  },
+  {
+    "id": 5,
+    "nome": "Rafa",
+    "poke": "Dragonite"
+  },
+  {
+    "id": 6,
+    "nome": "joão",
+    "poke": "Squitle"
+  }
+]

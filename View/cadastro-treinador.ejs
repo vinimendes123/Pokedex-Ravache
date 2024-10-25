@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Treinador</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Treinadores</h1>
+        <ul id="treinadores">
+            <% treinadores.forEach(function(treinador) { %>
+                <li>
+                    <a href="/treinadores/<%= treinador.id %>"><%= treinador.nome %></a> - Pokémon: <%= treinador.poke %>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <h1>Cadastro de Treinador</h1>
+        <form id="formCadastroTreinador" action="/cadastro-treinador" method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="poke">Pokémon:</label>
+            <select id="poke" name="poke" required>
+                <% pokemons.forEach(function(pokemon) { %>
+                    <option value="<%= pokemon.nome %>"><%= pokemon.nome %></option>
+                <% }); %>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

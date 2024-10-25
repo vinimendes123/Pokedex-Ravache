@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "nome": "Pikachu",
+    "tipo": "Elétrico"
+  },
+  {
+    "id": 2,
+    "nome": "Bulbassauro ",
+    "tipo": "fogo"
+  },
+  {
+    "id": 3,
+    "nome": "Squitle",
+    "tipo": "Água"
+  },
+  {
+    "id": 4,
+    "nome": "Wartortle",
+    "tipo": "Água"
+  },
+  {
+    "id": 5,
+    "nome": "Dragonite",
+    "tipo": "Dragão Voador"
+  }
+]

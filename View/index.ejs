@@ -33,5 +33,41 @@
 
         <div id="message"></div>
     </div>
+
+   
+    <div class="container">
+        <a id="btnCadastroTreinador" href="/cadastro-treinador">Cadastrar Treinador</a>
+    </div>
+    
+
+    <script>
+       
+        document.getElementById('formCadastro').addEventListener('submit', async function (event) {
+            event.preventDefault(); 
+
+            const nome = document.getElementById('nome').value;
+            const tipo = document.getElementById('tipo').value;
+
+            try {
+               
+                const response = await fetch('/pokemons', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ nome, tipo }),
+                });
+
+                if (response.ok) {
+                    window.location.reload(); 
+                } else {
+                    document.getElementById('message').innerText = 'Erro ao cadastrar Pokémon';
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                document.getElementById('message').innerText = 'Erro ao cadastrar Pokémon';
+            }
+        });
+    </script>
 </body>
 </html>
