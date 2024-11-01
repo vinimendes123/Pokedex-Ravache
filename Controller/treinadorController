@@ -1,11 +1,11 @@
 const treinadorModel = require('../Model/treinadorModel');
-const pokemonModel = require('../Model/pokemonModel'); // Adicione esta linha
+const pokemonModel = require('../Model/pokemonModel'); 
 
 const getAllTreinadores = (req, res) => {
     try {
-        const treinadores = treinadorModel.getTreinadores(); // Pega a lista de treinadores do model
-        const pokemons = pokemonModel.getPokemons(); // Pega a lista de Pokémons do model
-        res.render('cadastro-treinador', { treinadores, pokemons }); // Passa ambos para a view
+        const treinadores = treinadorModel.getTreinadores(); 
+        const pokemons = pokemonModel.getPokemons(); 
+        res.render('cadastro-treinador', { treinadores, pokemons });
     } catch (error) {
         console.error('Erro ao carregar a lista de treinadores:', error);
         res.status(500).send('Erro ao carregar a lista de treinadores.');
@@ -24,9 +24,9 @@ const getTreinador = (req, res) => {
 
 const getCadastroTreinador = (req, res) => {
     try {
-        const pokemons = pokemonModel.getPokemons(); // Pega a lista de Pokémons
-        const treinadores = treinadorModel.getTreinadores(); // Pega a lista de treinadores do model
-        res.render('cadastro-treinador', { pokemons, treinadores }); // Passa ambos para a view
+        const pokemons = pokemonModel.getPokemons(); 
+        const treinadores = treinadorModel.getTreinadores();
+        res.render('cadastro-treinador', { pokemons, treinadores }); 
     } catch (error) {
         console.error('Erro ao renderizar a página de cadastro de treinador:', error);
         res.status(500).send('Erro ao carregar a página de cadastro.');
